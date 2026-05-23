@@ -1,0 +1,2317 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hoola | Lucas de Optima360</title>
+    <meta name="description"
+        content="Una experiencia breve para conectar directamente con Lucas de Optima360.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Krona+One&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main id="o360-qr-onboarding" class="o360ob" aria-labelledby="o360ob-title">
+        <style>
+            html:has(#o360-qr-onboarding),
+            body:has(#o360-qr-onboarding) {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                overflow: hidden !important;
+                background: #079a9a !important;
+            }
+
+            .elementor-section:has(#o360-qr-onboarding),
+            .elementor-top-section:has(#o360-qr-onboarding),
+            .elementor-column:has(#o360-qr-onboarding),
+            .elementor-widget-wrap:has(#o360-qr-onboarding),
+            .elementor-widget-html:has(#o360-qr-onboarding),
+            .elementor-container:has(#o360-qr-onboarding),
+            .e-con:has(#o360-qr-onboarding),
+            .e-container:has(#o360-qr-onboarding) {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: visible !important;
+            }
+
+            #o360-qr-onboarding {
+                --ob-bg: #079a9a;
+                --ob-bg-deep: #007d80;
+                --ob-white: #ffffff;
+                --ob-soft: rgba(255, 255, 255, .72);
+                --ob-faint: rgba(255, 255, 255, .16);
+                --ob-line: rgba(255, 255, 255, .24);
+                --ob-shadow: rgba(0, 38, 42, .26);
+                --ob-font: "Jost", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                --ob-display: "Krona One", var(--ob-font);
+                position: relative;
+                isolation: isolate;
+                width: 100%;
+                height: 100svh;
+                min-height: 100svh;
+                max-height: 100svh;
+                overflow: hidden;
+                overscroll-behavior: none;
+                touch-action: manipulation;
+                color: var(--ob-white);
+                background:
+                    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, .2), transparent 28%),
+                    radial-gradient(circle at 82% 78%, rgba(0, 70, 73, .28), transparent 34%),
+                    linear-gradient(135deg, #079f9f 0%, var(--ob-bg) 48%, var(--ob-bg-deep) 100%);
+                font-family: var(--ob-font);
+                line-height: 1.4;
+                -webkit-text-size-adjust: 100%;
+            }
+
+            #o360-qr-onboarding,
+            #o360-qr-onboarding * {
+                box-sizing: border-box;
+            }
+
+            #o360-qr-onboarding a,
+            #o360-qr-onboarding a:visited,
+            #o360-qr-onboarding a:hover,
+            #o360-qr-onboarding a:focus {
+                color: inherit;
+                text-decoration: none !important;
+                box-shadow: none !important;
+                outline-color: rgba(255, 255, 255, .82);
+                outline-offset: 5px;
+            }
+
+            #o360-qr-onboarding button {
+                font: inherit;
+            }
+
+            #o360-qr-onboarding h1,
+            #o360-qr-onboarding h2,
+            #o360-qr-onboarding p {
+                margin: 0;
+            }
+
+            #o360-qr-onboarding img {
+                display: block;
+                max-width: 100%;
+            }
+
+            #o360-qr-onboarding .ob-bg-word {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: -3;
+                color: rgba(255, 255, 255, .055);
+                font-family: var(--ob-display);
+                font-size: clamp(96px, 17vw, 260px);
+                line-height: .76;
+                letter-spacing: -.05em;
+                text-transform: uppercase;
+                white-space: nowrap;
+                transform: translate(-50%, -50%) rotate(-8deg);
+                pointer-events: none;
+                user-select: none;
+            }
+
+            #o360-qr-onboarding .ob-orbit,
+            #o360-qr-onboarding .ob-orbit::before,
+            #o360-qr-onboarding .ob-orbit::after {
+                position: absolute;
+                border: 1px solid rgba(255, 255, 255, .12);
+                border-radius: 999px;
+                pointer-events: none;
+            }
+
+            #o360-qr-onboarding .ob-orbit {
+                right: -16vmin;
+                top: -18vmin;
+                z-index: -2;
+                width: 58vmin;
+                aspect-ratio: 1;
+                animation: ob-spin 18s linear infinite;
+            }
+
+            #o360-qr-onboarding .ob-orbit::before,
+            #o360-qr-onboarding .ob-orbit::after {
+                content: "";
+                inset: 14%;
+            }
+
+            #o360-qr-onboarding .ob-orbit::after {
+                inset: 31%;
+                background: rgba(255, 255, 255, .035);
+            }
+
+            #o360-qr-onboarding .ob-scan {
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .16), transparent);
+                width: 26vw;
+                min-width: 280px;
+                transform: translateX(-130%) skewX(-12deg);
+                animation: ob-scan 5.8s cubic-bezier(.76, 0, .24, 1) infinite 1.8s;
+                pointer-events: none;
+            }
+
+            #o360-qr-onboarding .ob-transition {
+                position: absolute;
+                inset: 0;
+                z-index: 7;
+                overflow: hidden;
+                pointer-events: none;
+                opacity: 0;
+            }
+
+            #o360-qr-onboarding .ob-transition::before,
+            #o360-qr-onboarding .ob-transition::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: min(92vw, 860px);
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .94), transparent);
+                transform: translate(-50%, -50%) scaleX(0);
+                transform-origin: center;
+                opacity: 0;
+            }
+
+            #o360-qr-onboarding .ob-transition::before {
+                margin-top: clamp(-96px, -12vw, -54px);
+            }
+
+            #o360-qr-onboarding .ob-transition::after {
+                margin-top: clamp(54px, 12vw, 96px);
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .48), transparent);
+            }
+
+            #o360-qr-onboarding .ob-transition-mark {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: clamp(68px, 18vw, 138px);
+                aspect-ratio: 1;
+                border: 1px solid rgba(255, 255, 255, .32);
+                border-radius: 50%;
+                transform: translate(-50%, -50%) scale(.7) rotate(0deg);
+                opacity: 0;
+                box-shadow: inset 0 0 0 18px rgba(255, 255, 255, .035);
+            }
+
+            #o360-qr-onboarding.is-wiping .ob-transition {
+                opacity: 1;
+            }
+
+            #o360-qr-onboarding.is-wiping .ob-transition::before {
+                animation: ob-wipe-line .72s cubic-bezier(.76, 0, .24, 1) both;
+            }
+
+            #o360-qr-onboarding.is-wiping .ob-transition::after {
+                animation: ob-wipe-line .72s cubic-bezier(.76, 0, .24, 1) both .08s;
+            }
+
+            #o360-qr-onboarding.is-wiping .ob-transition-mark {
+                animation: ob-wipe-mark .74s cubic-bezier(.76, 0, .24, 1) both .03s;
+            }
+
+            #o360-qr-onboarding .ob-shell {
+                height: 100svh;
+                min-height: 100svh;
+                max-height: 100svh;
+                position: relative;
+                display: grid;
+                grid-template-rows: auto minmax(0, 1fr);
+                gap: clamp(8px, 1.8vw, 16px);
+                padding: clamp(12px, 3vw, 22px);
+                padding-bottom: clamp(12px, 3vw, 22px);
+                overflow: hidden;
+            }
+
+            #o360-qr-onboarding .ob-top {
+                position: relative;
+                z-index: 8;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 18px;
+                min-height: 40px;
+                opacity: 0;
+                transform: translateY(16px);
+                animation: ob-interface-in .74s cubic-bezier(.2, .8, .2, 1) forwards 1.98s;
+            }
+
+            #o360-qr-onboarding .ob-logo {
+                width: clamp(70px, 12vw, 90px);
+                height: auto;
+                object-fit: contain;
+                filter: brightness(0) invert(1) contrast(1.04);
+                opacity: .98;
+                transform-origin: left center;
+                animation: ob-logo-in .9s cubic-bezier(.2, .8, .2, 1) both .1s;
+            }
+
+            #o360-qr-onboarding .ob-skip {
+                min-height: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 0;
+                border-radius: 999px;
+                padding: 0 12px;
+                background: transparent;
+                color: rgba(255, 255, 255, .86);
+                font-size: 12.5px;
+                font-weight: 800;
+                letter-spacing: 0;
+                backdrop-filter: none;
+                transition: background .2s ease, transform .2s ease, border-color .2s ease;
+            }
+
+            #o360-qr-onboarding .ob-skip:hover {
+                transform: translateY(-1px);
+                background: transparent;
+                border-color: transparent;
+            }
+
+            #o360-qr-onboarding .ob-frame {
+                position: relative;
+                display: grid;
+                place-items: center;
+                width: min(100%, 1160px);
+                height: 100%;
+                margin: 0 auto;
+                padding-bottom: 62px;
+                text-align: center;
+                opacity: 0;
+                transform: translateY(22px);
+                animation: ob-interface-in .78s cubic-bezier(.2, .8, .2, 1) forwards 2.08s;
+            }
+
+            #o360-qr-onboarding .ob-slide {
+                grid-area: 1 / 1;
+                width: min(100%, 760px);
+                height: 100%;
+                min-height: 0;
+                display: grid;
+                grid-template-columns: 1fr;
+                align-items: center;
+                justify-items: center;
+                align-content: center;
+                gap: clamp(18px, 3.4vw, 30px);
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transform: translateY(34px) scale(.985);
+                filter: blur(10px);
+                will-change: transform, opacity, filter, clip-path;
+                transition:
+                    opacity .72s cubic-bezier(.2, .8, .2, 1),
+                    visibility .72s cubic-bezier(.2, .8, .2, 1),
+                    transform .72s cubic-bezier(.2, .8, .2, 1),
+                    filter .72s cubic-bezier(.2, .8, .2, 1);
+            }
+
+            #o360-qr-onboarding .ob-slide.is-active {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+
+            #o360-qr-onboarding .ob-slide.is-leaving {
+                opacity: 0;
+                visibility: visible;
+                transform: translateY(-36px) scale(.98);
+                filter: blur(10px);
+            }
+
+            #o360-qr-onboarding[data-motion="prev"] .ob-slide.is-leaving {
+                transform: translateY(36px) scale(.98);
+            }
+
+            #o360-qr-onboarding .ob-slide.is-active {
+                animation: ob-scene-in .78s cubic-bezier(.2, .8, .2, 1) both;
+            }
+
+            #o360-qr-onboarding .ob-slide.is-leaving {
+                animation: ob-scene-out .58s cubic-bezier(.76, 0, .24, 1) both;
+            }
+
+            #o360-qr-onboarding[data-motion="prev"] .ob-slide.is-active {
+                animation-name: ob-scene-in-prev;
+            }
+
+            #o360-qr-onboarding[data-motion="prev"] .ob-slide.is-leaving {
+                animation-name: ob-scene-out-prev;
+            }
+
+            #o360-qr-onboarding .ob-copy {
+                position: relative;
+                z-index: 2;
+                display: grid;
+                justify-items: center;
+                gap: clamp(14px, 2.8vw, 24px);
+                text-align: center;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-copy,
+            #o360-qr-onboarding .ob-slide:nth-child(2) .ob-copy {
+                gap: clamp(18px, 3.4vw, 30px);
+            }
+
+            #o360-qr-onboarding .ob-title {
+                max-width: 16ch;
+                color: var(--ob-white);
+                font-family: var(--ob-display);
+                font-size: clamp(30px, 8.8vw, 38px);
+                line-height: 1.07;
+                font-weight: 400;
+                letter-spacing: 0;
+                text-transform: none;
+                text-wrap: balance;
+            }
+
+            #o360-qr-onboarding .ob-title--wide {
+                max-width: 17ch;
+                font-size: clamp(26px, 7.5vw, 34px);
+            }
+
+            #o360-qr-onboarding .ob-title--welcome {
+                max-width: 22ch;
+                display: grid;
+                gap: .26em;
+            }
+
+            #o360-qr-onboarding .ob-title--welcome span {
+                display: block;
+                font-size: clamp(30px, 8.7vw, 38px);
+                line-height: 1;
+            }
+
+            #o360-qr-onboarding .ob-title--welcome small {
+                display: block;
+                max-width: 22ch;
+                color: rgba(255, 255, 255, .86);
+                font: inherit;
+                font-size: clamp(15px, 4.15vw, 19px);
+                line-height: 1.08;
+                font-weight: 400;
+            }
+
+            #o360-qr-onboarding .ob-text {
+                max-width: 32ch;
+                color: var(--ob-soft);
+                font-size: clamp(15.5px, 4.3vw, 18px);
+                line-height: 1.23;
+                font-weight: 500;
+                letter-spacing: 0;
+                text-wrap: balance;
+            }
+
+            #o360-qr-onboarding .ob-text strong {
+                color: var(--ob-white);
+                font-weight: 900;
+            }
+
+            #o360-qr-onboarding .ob-text--stack {
+                display: grid;
+                gap: 8px;
+                justify-items: center;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-text--stack {
+                gap: 12px;
+            }
+
+            #o360-qr-onboarding .ob-text--stack span {
+                display: block;
+            }
+
+            #o360-qr-onboarding .ob-microline {
+                width: fit-content;
+                max-width: min(100%, 520px);
+                margin: 2px auto 0;
+                padding: 7px 11px;
+                border: 1px solid rgba(255, 255, 255, .22);
+                border-radius: 999px;
+                background: rgba(255, 255, 255, .1);
+                color: rgba(255, 255, 255, .9);
+                font-size: clamp(13px, 3.4vw, 14px);
+                font-weight: 800;
+                letter-spacing: .01em;
+                backdrop-filter: blur(14px);
+            }
+
+            #o360-qr-onboarding .ob-kicker {
+                margin: 0;
+                color: rgba(255, 255, 255, .64);
+                font-size: clamp(12px, 3.2vw, 13px);
+                line-height: 1;
+                font-weight: 800;
+                letter-spacing: .02em;
+            }
+
+            #o360-qr-onboarding .ob-slide-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-slide-actions,
+            #o360-qr-onboarding .ob-slide:nth-child(2) .ob-slide-actions {
+                margin-top: clamp(8px, 2vw, 16px);
+            }
+
+            #o360-qr-onboarding .ob-slide--diagnosis {
+                width: min(100%, 680px);
+                gap: clamp(10px, 2.2vw, 18px);
+            }
+
+            #o360-qr-onboarding .ob-slide--diagnosis .ob-title,
+            #o360-qr-onboarding .ob-slide--paths .ob-title {
+                font-size: clamp(26px, 7.5vw, 34px);
+            }
+
+            #o360-qr-onboarding .ob-slide--diagnosis .ob-title {
+                font-size: clamp(24px, 6.6vw, 32px);
+            }
+
+            #o360-qr-onboarding .ob-choices {
+                width: 100%;
+                position: relative;
+                display: grid;
+                justify-items: center;
+                gap: 8px;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel {
+                position: relative;
+                width: min(100%, 460px);
+                height: 292px;
+                margin-block: -10px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                overscroll-behavior: contain;
+                touch-action: pan-y;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .18) 7%, rgba(0, 0, 0, .58) 18%, #000 33%, #000 67%, rgba(0, 0, 0, .58) 82%, rgba(0, 0, 0, .18) 93%, transparent 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, .18) 7%, rgba(0, 0, 0, .58) 18%, #000 33%, #000 67%, rgba(0, 0, 0, .58) 82%, rgba(0, 0, 0, .18) 93%, transparent 100%);
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel::-webkit-scrollbar {
+                display: none;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-track {
+                position: relative;
+                z-index: 1;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-spacer {
+                height: 117px;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-item {
+                height: 58px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 4px 14px;
+                cursor: pointer;
+                transform-origin: center center;
+                will-change: transform, opacity, filter;
+                transition: transform 140ms linear, opacity 140ms linear, filter 140ms linear;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-card {
+                width: 100%;
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px 14px;
+                color: rgba(255, 255, 255, .72);
+                text-align: center;
+                font-size: clamp(14px, 3.8vw, 15.5px);
+                line-height: 1.08;
+                font-weight: 760;
+                letter-spacing: 0;
+                user-select: none;
+                pointer-events: none;
+                text-wrap: balance;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-item.is-centered .ob-choice-wheel-card {
+                color: #ffffff;
+                font-weight: 880;
+            }
+
+            #o360-qr-onboarding .ob-choice-wheel-focus {
+                position: absolute;
+                top: calc((clamp(12px, 3.2vw, 13px) * 1.1) + 8px + 117px - 10px);
+                left: 50%;
+                z-index: 3;
+                height: 58px;
+                pointer-events: none;
+                width: 100vw;
+                transform: translateX(-50%);
+                border-block: 1px solid rgba(255, 255, 255, .34);
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1) 18%, rgba(255, 255, 255, .1) 82%, transparent);
+            }
+
+            #o360-qr-onboarding .ob-choice-hint {
+                color: rgba(255, 255, 255, .58);
+                font-size: clamp(12px, 3.2vw, 13px);
+                line-height: 1.1;
+                font-weight: 700;
+            }
+
+            #o360-qr-onboarding .ob-choices .ob-btn {
+                width: auto;
+                justify-self: center;
+                padding-inline: 24px;
+            }
+
+            #o360-qr-onboarding .ob-result-card {
+                width: min(100%, 560px);
+                display: grid;
+                justify-items: center;
+                gap: clamp(16px, 3vw, 24px);
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+            }
+
+            #o360-qr-onboarding .ob-result-text {
+                max-width: 31ch;
+                font-size: clamp(15px, 4vw, 17px);
+                line-height: 1.24;
+            }
+
+            #o360-qr-onboarding .ob-paths {
+                width: min(100%, 760px);
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            #o360-qr-onboarding .ob-path-card {
+                min-height: 190px;
+                display: grid;
+                align-content: space-between;
+                justify-items: center;
+                gap: 14px;
+                padding: 20px;
+                border: 1px solid rgba(255, 255, 255, .2);
+                border-radius: 26px;
+                background: rgba(255, 255, 255, .09);
+                box-shadow: 0 24px 70px rgba(0, 54, 58, .16);
+                backdrop-filter: blur(20px);
+            }
+
+            #o360-qr-onboarding .ob-path-card--primary {
+                background: rgba(255, 255, 255, .16);
+                border-color: rgba(255, 255, 255, .34);
+            }
+
+            #o360-qr-onboarding .ob-path-card h3 {
+                margin: 0;
+                color: #ffffff;
+                font-size: clamp(18px, 2vw, 24px);
+                line-height: 1.08;
+                font-weight: 850;
+                letter-spacing: 0;
+            }
+
+            #o360-qr-onboarding .ob-path-card p {
+                margin: 0;
+                color: rgba(255, 255, 255, .68);
+                font-size: clamp(13px, 1.5vw, 15px);
+                line-height: 1.28;
+                font-weight: 600;
+            }
+
+            #o360-qr-onboarding .ob-result-card--final {
+                background: transparent;
+            }
+
+            #o360-qr-onboarding .ob-note {
+                max-width: 31ch;
+                display: grid;
+                gap: 4px;
+                color: rgba(255, 255, 255, .66);
+                font-size: clamp(13px, 3.6vw, 14px);
+                line-height: 1.22;
+                font-weight: 600;
+            }
+
+            #o360-qr-onboarding .ob-visual {
+                justify-self: center;
+                width: min(45vw, 170px);
+                aspect-ratio: 1;
+                position: relative;
+                display: grid;
+                place-items: center;
+            }
+
+            #o360-qr-onboarding .ob-visual::before {
+                content: "";
+                position: absolute;
+                inset: 2%;
+                border: 1px solid rgba(255, 255, 255, .28);
+                border-radius: 50%;
+                animation: ob-breathe 3.2s ease-in-out infinite;
+            }
+
+            #o360-qr-onboarding .ob-visual::after {
+                content: "";
+                position: absolute;
+                inset: 22%;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, .12);
+                box-shadow:
+                    0 0 0 22px rgba(255, 255, 255, .05),
+                    0 0 90px rgba(255, 255, 255, .22);
+                animation: ob-float 4.5s ease-in-out infinite;
+            }
+
+            #o360-qr-onboarding .ob-visual-logo {
+                position: relative;
+                z-index: 2;
+                width: 46%;
+                filter: brightness(0) invert(1) contrast(1.04);
+                opacity: .92;
+            }
+
+            #o360-qr-onboarding .ob-mini-stack {
+                position: relative;
+                width: min(100%, 320px);
+                display: grid;
+                gap: 7px;
+                justify-self: center;
+            }
+
+            #o360-qr-onboarding .ob-mini-card {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 0 13px;
+                border: 1px solid rgba(255, 255, 255, .22);
+                border-radius: 20px;
+                background: rgba(255, 255, 255, .1);
+                color: rgba(255, 255, 255, .86);
+                box-shadow: 0 24px 70px rgba(0, 54, 58, .15);
+                backdrop-filter: blur(20px);
+                animation: ob-card-in .8s cubic-bezier(.2, .8, .2, 1) both;
+            }
+
+            #o360-qr-onboarding .ob-mini-card:nth-child(2) {
+                animation-delay: .12s;
+                margin-left: 0;
+            }
+
+            #o360-qr-onboarding .ob-mini-card:nth-child(3) {
+                animation-delay: .22s;
+                margin-left: 0;
+            }
+
+            #o360-qr-onboarding .ob-mini-card span {
+                font-size: 13.5px;
+                font-weight: 850;
+                letter-spacing: -.01em;
+            }
+
+            #o360-qr-onboarding .ob-mini-card i {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #ffffff;
+                opacity: .8;
+                box-shadow: 0 0 0 8px rgba(255, 255, 255, .08);
+            }
+
+            #o360-qr-onboarding .ob-message {
+                width: min(100%, 390px);
+                justify-self: center;
+                display: grid;
+                gap: 12px;
+                padding: 18px;
+                border: 1px solid rgba(255, 255, 255, .24);
+                border-radius: 28px;
+                background: rgba(255, 255, 255, .1);
+                box-shadow: 0 28px 90px rgba(0, 54, 58, .18);
+                backdrop-filter: blur(22px);
+            }
+
+            #o360-qr-onboarding .ob-bubble {
+                width: fit-content;
+                max-width: 100%;
+                padding: 13px 15px;
+                border-radius: 18px 18px 18px 4px;
+                background: rgba(255, 255, 255, .96);
+                color: var(--ob-bg-deep);
+                font-size: 15px;
+                line-height: 1.32;
+                font-weight: 750;
+                box-shadow: 0 14px 36px rgba(0, 54, 58, .15);
+                animation: ob-bubble .72s cubic-bezier(.2, .8, .2, 1) both;
+            }
+
+            #o360-qr-onboarding .ob-bubble:nth-child(2) {
+                animation-delay: .16s;
+                justify-self: end;
+                border-radius: 18px 18px 4px 18px;
+                background: rgba(255, 255, 255, .16);
+                color: #ffffff;
+                border: 1px solid rgba(255, 255, 255, .22);
+            }
+
+            #o360-qr-onboarding .ob-final {
+                display: grid;
+                gap: clamp(11px, 2.4vw, 18px);
+                align-content: center;
+                justify-items: center;
+                text-align: center;
+            }
+
+            #o360-qr-onboarding .ob-final-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 9px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #o360-qr-onboarding .ob-btn {
+                appearance: none;
+                min-height: 48px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                border: 0;
+                border-radius: 999px;
+                padding: 0 18px;
+                cursor: pointer;
+                color: var(--ob-bg-deep);
+                background: #ffffff;
+                font-size: 15px;
+                font-weight: 800;
+                letter-spacing: 0;
+                box-shadow: 0 20px 46px rgba(0, 54, 58, .22);
+                transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+            }
+
+            #o360-qr-onboarding .ob-btn,
+            #o360-qr-onboarding .ob-btn:hover,
+            #o360-qr-onboarding .ob-btn:focus {
+                color: var(--ob-bg-deep) !important;
+                background: #ffffff !important;
+            }
+
+            #o360-qr-onboarding .ob-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 26px 56px rgba(0, 54, 58, .28);
+            }
+
+            #o360-qr-onboarding .ob-btn::after {
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-right: 2px solid currentColor;
+                border-bottom: 2px solid currentColor;
+                transform: rotate(-45deg);
+            }
+
+            #o360-qr-onboarding .ob-link {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 0;
+                border-radius: 999px;
+                padding: 0 16px;
+                color: rgba(255, 255, 255, .68);
+                background: transparent;
+                font-size: 14px;
+                font-weight: 800;
+                text-decoration: none !important;
+                transition: color .2s ease, opacity .2s ease, transform .2s ease;
+            }
+
+            #o360-qr-onboarding .ob-link:hover {
+                color: #ffffff;
+                background: transparent;
+                transform: translateY(-1px);
+            }
+
+            #o360-qr-onboarding .ob-step-nav {
+                position: absolute;
+                left: clamp(14px, 3vw, 24px);
+                right: clamp(14px, 3vw, 24px);
+                bottom: clamp(12px, 3vw, 22px);
+                z-index: 9;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                pointer-events: none;
+                opacity: 0;
+                transform: translateY(12px);
+                animation: ob-interface-in .74s cubic-bezier(.2, .8, .2, 1) forwards 2.18s;
+            }
+
+            #o360-qr-onboarding .ob-step-arrow {
+                width: 42px;
+                height: 42px;
+                display: inline-grid;
+                place-items: center;
+                border: 1px solid rgba(255, 255, 255, .72);
+                border-radius: 999px;
+                background: transparent;
+                color: #ffffff;
+                cursor: pointer;
+                pointer-events: auto;
+                opacity: .86;
+                transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
+            }
+
+            #o360-qr-onboarding .ob-step-arrow:hover {
+                opacity: 1;
+                transform: translateY(-1px);
+                border-color: #ffffff;
+            }
+
+            #o360-qr-onboarding .ob-step-arrow[hidden] {
+                display: inline-grid !important;
+                visibility: hidden;
+                pointer-events: none;
+                opacity: 0;
+            }
+
+            #o360-qr-onboarding .ob-step-arrow svg {
+                width: 17px;
+                height: 17px;
+                stroke: currentColor;
+                stroke-width: 2.2;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            #o360-qr-onboarding .ob-splash {
+                position: absolute;
+                inset: 0;
+                z-index: 20;
+                display: grid;
+                place-items: center;
+                overflow: hidden;
+                background: var(--ob-bg);
+                animation: ob-splash-out .78s cubic-bezier(.76, 0, .24, 1) forwards 1.62s;
+                pointer-events: none;
+            }
+
+            #o360-qr-onboarding .ob-splash::before,
+            #o360-qr-onboarding .ob-splash::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: min(86vw, 1040px);
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .92), transparent);
+                transform: translate(-50%, -50%) scaleX(0);
+                opacity: 0;
+            }
+
+            #o360-qr-onboarding .ob-splash::before {
+                margin-top: clamp(-108px, -10vw, -62px);
+                animation: ob-opening-line .92s cubic-bezier(.76, 0, .24, 1) forwards .08s;
+            }
+
+            #o360-qr-onboarding .ob-splash::after {
+                margin-top: clamp(62px, 10vw, 108px);
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .42), transparent);
+                animation: ob-opening-line .92s cubic-bezier(.76, 0, .24, 1) forwards .24s;
+            }
+
+            #o360-qr-onboarding .ob-splash-type {
+                position: relative;
+                z-index: 2;
+                display: grid;
+                justify-items: center;
+                gap: .06em;
+                width: min(calc(100vw - 32px), 820px);
+                overflow: hidden;
+                color: #ffffff;
+                font-family: var(--ob-display);
+                text-align: center;
+            }
+
+            #o360-qr-onboarding .ob-splash-type::before,
+            #o360-qr-onboarding .ob-splash-type::after {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: -1;
+                width: max-content;
+                color: transparent;
+                pointer-events: none;
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+                -webkit-text-stroke: 1px rgba(255, 255, 255, .18);
+            }
+
+            #o360-qr-onboarding .ob-splash-type::before {
+                content: "HOOLA";
+                font-size: clamp(62px, 15vw, 210px);
+                transform: translate(-50%, -65%) scale(1.08);
+                animation: ob-opening-ghost .95s cubic-bezier(.2, .8, .2, 1) forwards .14s;
+            }
+
+            #o360-qr-onboarding .ob-splash-type::after {
+                content: "OPTIMA360";
+                font-size: clamp(40px, 9vw, 150px);
+                transform: translate(-50%, 34%) scale(.96);
+                -webkit-text-stroke-color: rgba(255, 255, 255, .3);
+                animation: ob-opening-ghost .95s cubic-bezier(.2, .8, .2, 1) forwards .34s;
+            }
+
+            #o360-qr-onboarding .ob-splash-word {
+                display: block;
+                font-size: clamp(40px, 10vw, 132px);
+                line-height: 1;
+                font-weight: 400;
+                opacity: 0;
+                transform: translateY(34px) scale(.96);
+                filter: blur(8px);
+                animation: ob-opening-word .78s cubic-bezier(.2, .8, .2, 1) forwards .34s;
+            }
+
+            #o360-qr-onboarding .ob-splash-word--outline {
+                color: transparent;
+                -webkit-text-stroke: clamp(1px, .13vw, 2px) rgba(255, 255, 255, .98);
+                animation-delay: .58s;
+            }
+
+            #o360-qr-onboarding .ob-splash-logo {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 4;
+                width: min(38vw, 210px);
+                filter: brightness(0) invert(1) contrast(1.04);
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(.44) rotate(0deg);
+                animation: ob-splash-logo 1.05s cubic-bezier(.76, 0, .24, 1) forwards 1.04s;
+            }
+
+            #o360-qr-onboarding .ob-slide.is-active .ob-title {
+                animation: ob-title-reveal .64s cubic-bezier(.2, .8, .2, 1) both .08s;
+            }
+
+            #o360-qr-onboarding .ob-slide.is-active .ob-text,
+            #o360-qr-onboarding .ob-slide.is-active .ob-slide-actions,
+            #o360-qr-onboarding .ob-slide.is-active .ob-final-actions {
+                animation: ob-soft-up .66s cubic-bezier(.2, .8, .2, 1) both .18s;
+            }
+
+            #o360-qr-onboarding .ob-slide.is-active .ob-visual,
+            #o360-qr-onboarding .ob-slide.is-active .ob-mini-stack,
+            #o360-qr-onboarding .ob-slide.is-active .ob-message,
+            #o360-qr-onboarding .ob-slide.is-active .ob-choices,
+            #o360-qr-onboarding .ob-slide.is-active .ob-paths {
+                animation: ob-visual-pop .72s cubic-bezier(.2, .8, .2, 1) both .22s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1).is-active .ob-visual::before {
+                animation: ob-breathe 3.2s ease-in-out infinite, ob-ring-draw .82s cubic-bezier(.2, .8, .2, 1) both .36s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1).is-active .ob-visual-logo {
+                animation: ob-logo-heartbeat 3.4s ease-in-out infinite .9s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-visual,
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-visual::before,
+            #o360-qr-onboarding .ob-slide:nth-child(1) .ob-visual::after {
+                display: none;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(2).is-active .ob-mini-card {
+                animation: ob-card-slide-in .72s cubic-bezier(.2, .8, .2, 1) both;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(2).is-active .ob-mini-card:nth-child(2) {
+                animation-delay: .14s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(2).is-active .ob-mini-card:nth-child(3) {
+                animation-delay: .26s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(2).is-active .ob-mini-card i {
+                animation: ob-mini-check .7s cubic-bezier(.2, .8, .2, 1) both .48s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-message {
+                animation: ob-phone-tilt .82s cubic-bezier(.2, .8, .2, 1) both .22s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-message::after {
+                content: "";
+                position: absolute;
+                left: 18px;
+                right: 18px;
+                bottom: 14px;
+                height: 2px;
+                border-radius: 999px;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .84), transparent);
+                transform: scaleX(0);
+                transform-origin: left;
+                animation: ob-message-scan 1.2s cubic-bezier(.76, 0, .24, 1) both .64s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(4).is-active .ob-final-actions {
+                animation: ob-cta-rise .78s cubic-bezier(.2, .8, .2, 1) both .22s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(4).is-active .ob-btn {
+                animation: ob-cta-pulse 2.8s ease-in-out infinite 1s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-choice {
+                animation: ob-choice-in .66s cubic-bezier(.2, .8, .2, 1) both;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-choice-wheel {
+                animation: ob-choice-in .66s cubic-bezier(.2, .8, .2, 1) both .08s;
+            }
+
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-choices .ob-btn,
+            #o360-qr-onboarding .ob-slide:nth-child(3).is-active .ob-choice-hint {
+                animation: ob-soft-up .62s cubic-bezier(.2, .8, .2, 1) both .18s;
+            }
+
+            @keyframes ob-opening-line {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scaleX(0);
+                }
+
+                42% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scaleX(1);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scaleX(1.08);
+                }
+            }
+
+            @keyframes ob-opening-ghost {
+                0% {
+                    opacity: 0;
+                    filter: blur(9px);
+                }
+
+                46% {
+                    opacity: 1;
+                    filter: blur(0);
+                }
+
+                100% {
+                    opacity: 0;
+                    filter: blur(7px);
+                }
+            }
+
+            @keyframes ob-opening-word {
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-zone-hint {
+                0% {
+                    opacity: 0;
+                    filter: blur(8px);
+                }
+
+                34% {
+                    opacity: .56;
+                    filter: blur(0);
+                }
+
+                100% {
+                    opacity: .18;
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-zone-pulse {
+
+                0%,
+                100% {
+                    transform: scale(.96);
+                    opacity: .35;
+                }
+
+                50% {
+                    transform: scale(1.08);
+                    opacity: .62;
+                }
+            }
+
+            @keyframes ob-zone-flash {
+                0% {
+                    opacity: .18;
+                    filter: blur(6px);
+                }
+
+                42% {
+                    opacity: .82;
+                    filter: blur(0);
+                }
+
+                100% {
+                    opacity: .18;
+                    filter: blur(6px);
+                }
+            }
+
+            @keyframes ob-interface-in {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes ob-controls-in {
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+
+            @keyframes ob-wipe-line {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scaleX(0);
+                }
+
+                38% {
+                    opacity: .96;
+                    transform: translate(-50%, -50%) scaleX(1);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scaleX(1.18);
+                }
+            }
+
+            @keyframes ob-wipe-mark {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(.66) rotate(0deg);
+                    filter: blur(8px);
+                }
+
+                42% {
+                    opacity: .72;
+                    transform: translate(-50%, -50%) scale(1) rotate(90deg);
+                    filter: blur(0);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(1.55) rotate(180deg);
+                    filter: blur(10px);
+                }
+            }
+
+            @keyframes ob-scene-in {
+                0% {
+                    opacity: 0;
+                    transform: translateY(46px) scale(.97);
+                    filter: blur(14px);
+                    clip-path: inset(18% 0 0 0);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+
+            @keyframes ob-scene-in-prev {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-46px) scale(.97);
+                    filter: blur(14px);
+                    clip-path: inset(0 0 18% 0);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+
+            @keyframes ob-scene-out {
+                to {
+                    opacity: 0;
+                    transform: translateY(-42px) scale(.975);
+                    filter: blur(12px);
+                    clip-path: inset(0 0 22% 0);
+                }
+            }
+
+            @keyframes ob-scene-out-prev {
+                to {
+                    opacity: 0;
+                    transform: translateY(42px) scale(.975);
+                    filter: blur(12px);
+                    clip-path: inset(22% 0 0 0);
+                }
+            }
+
+            @keyframes ob-logo-in {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px) scale(.92);
+                }
+            }
+
+            @keyframes ob-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes ob-scan {
+                0% {
+                    transform: translateX(-130%) skewX(-12deg);
+                }
+
+                46%,
+                100% {
+                    transform: translateX(520%) skewX(-12deg);
+                }
+            }
+
+            @keyframes ob-breathe {
+
+                0%,
+                100% {
+                    transform: scale(.96);
+                    opacity: .58;
+                }
+
+                50% {
+                    transform: scale(1.04);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes ob-float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-12px);
+                }
+            }
+
+            @keyframes ob-card-in {
+                from {
+                    opacity: 0;
+                    transform: translateX(32px) scale(.98);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0) scale(1);
+                }
+            }
+
+            @keyframes ob-bubble {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px) scale(.96);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            @keyframes ob-ring-draw {
+                from {
+                    clip-path: inset(0 100% 0 0);
+                    opacity: 0;
+                }
+
+                to {
+                    clip-path: inset(0 0 0 0);
+                    opacity: .86;
+                }
+            }
+
+            @keyframes ob-logo-heartbeat {
+
+                0%,
+                100% {
+                    transform: scale(1) rotate(0deg);
+                }
+
+                45% {
+                    transform: scale(1.06) rotate(-4deg);
+                }
+
+                58% {
+                    transform: scale(.98) rotate(3deg);
+                }
+            }
+
+            @keyframes ob-card-slide-in {
+                0% {
+                    opacity: 0;
+                    transform: translateX(44px) rotate(2deg) scale(.96);
+                    filter: blur(10px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateX(0) rotate(0deg) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-choice-in {
+                0% {
+                    opacity: 0;
+                    transform: translateY(18px) scale(.97);
+                    filter: blur(9px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-path-card-in {
+                0% {
+                    opacity: 0;
+                    transform: translateY(24px) rotate(-1deg) scale(.96);
+                    filter: blur(10px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-mini-check {
+                0% {
+                    transform: scale(.4);
+                    opacity: 0;
+                    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                }
+
+                60% {
+                    transform: scale(1.22);
+                    opacity: 1;
+                    box-shadow: 0 0 0 13px rgba(255, 255, 255, .1);
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: .86;
+                    box-shadow: 0 0 0 8px rgba(255, 255, 255, .08);
+                }
+            }
+
+            @keyframes ob-phone-tilt {
+                0% {
+                    opacity: 0;
+                    transform: translateY(28px) rotate(-4deg) scale(.94);
+                    filter: blur(10px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-message-scan {
+                0% {
+                    transform: scaleX(0);
+                    opacity: 0;
+                }
+
+                38% {
+                    transform: scaleX(1);
+                    opacity: .9;
+                }
+
+                100% {
+                    transform: translateX(100%) scaleX(0);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes ob-cta-rise {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px) scale(.96);
+                    filter: blur(8px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-cta-pulse {
+
+                0%,
+                100% {
+                    transform: translateY(0) scale(1);
+                    box-shadow: 0 20px 46px rgba(0, 54, 58, .22);
+                }
+
+                50% {
+                    transform: translateY(-2px) scale(1.02);
+                    box-shadow: 0 28px 70px rgba(0, 54, 58, .34);
+                }
+            }
+
+            @keyframes ob-title-reveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px) scale(.98);
+                    clip-path: inset(0 0 100% 0);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    clip-path: inset(0 0 0 0);
+                }
+            }
+
+            @keyframes ob-soft-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(18px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes ob-visual-pop {
+                from {
+                    opacity: 0;
+                    transform: translateY(22px) scale(.92);
+                    filter: blur(8px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            @keyframes ob-splash-logo {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(.44) rotate(0deg);
+                    filter: brightness(0) invert(1) contrast(1.12) blur(0);
+                }
+
+                28% {
+                    opacity: .96;
+                    transform: translate(-50%, -50%) scale(.62) rotate(42deg);
+                    filter: brightness(0) invert(1) contrast(1.12) blur(0);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(16) rotate(190deg);
+                    filter: brightness(0) invert(1) contrast(1.12) blur(1px);
+                }
+            }
+
+            @keyframes ob-splash-out {
+                0% {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+
+                to {
+                    opacity: 0;
+                    transform: translateY(-4%);
+                    visibility: hidden;
+                }
+            }
+
+            @media (max-width: 900px) {
+                #o360-qr-onboarding .ob-shell {
+                    padding: 14px;
+                    padding-bottom: 14px;
+                }
+
+                #o360-qr-onboarding .ob-frame {
+                    padding-bottom: 58px;
+                }
+
+                #o360-qr-onboarding .ob-slide {
+                    width: min(100%, 620px);
+                    min-height: 0;
+                    grid-template-columns: 1fr;
+                    justify-items: center;
+                    align-content: center;
+                    text-align: center;
+                    gap: 20px;
+                }
+
+                #o360-qr-onboarding .ob-visual,
+                #o360-qr-onboarding .ob-mini-stack,
+                #o360-qr-onboarding .ob-message {
+                    justify-self: center;
+                    width: min(100%, 330px);
+                }
+
+                #o360-qr-onboarding .ob-title {
+                    max-width: 13ch;
+                    font-size: clamp(30px, 8.8vw, 38px);
+                    line-height: 1.07;
+                }
+
+                #o360-qr-onboarding .ob-text {
+                    font-size: clamp(15.5px, 4.3vw, 18px);
+                    line-height: 1.23;
+                }
+            }
+
+            @media (max-width: 560px) {
+                #o360-qr-onboarding .ob-shell {
+                    gap: 14px;
+                    padding: 12px;
+                    padding-bottom: 12px;
+                }
+
+                #o360-qr-onboarding .ob-frame {
+                    padding-bottom: 56px;
+                }
+
+                #o360-qr-onboarding .ob-logo {
+                    width: 74px;
+                }
+
+                #o360-qr-onboarding .ob-skip {
+                    min-height: 34px;
+                    padding: 0 11px;
+                    font-size: 12px;
+                }
+
+                #o360-qr-onboarding .ob-slide {
+                    min-height: 0;
+                    gap: 18px;
+                }
+
+                #o360-qr-onboarding .ob-slide:nth-child(1) .ob-copy,
+                #o360-qr-onboarding .ob-slide:nth-child(2) .ob-copy {
+                    gap: 22px;
+                }
+
+                #o360-qr-onboarding .ob-title {
+                    font-size: clamp(29px, 8.6vw, 37px);
+                    line-height: 1.07;
+                }
+
+                #o360-qr-onboarding .ob-text {
+                    max-width: 30ch;
+                    font-size: 15.5px;
+                    line-height: 1.23;
+                }
+
+                #o360-qr-onboarding .ob-text--stack {
+                    gap: 10px;
+                }
+
+                #o360-qr-onboarding .ob-slide-actions {
+                    width: 100%;
+                    display: grid;
+                    justify-items: stretch;
+                    gap: 13px;
+                }
+
+                #o360-qr-onboarding .ob-slide--diagnosis,
+                #o360-qr-onboarding .ob-slide--paths {
+                    min-height: 0;
+                    gap: 10px;
+                }
+
+                #o360-qr-onboarding .ob-slide--diagnosis .ob-title,
+                #o360-qr-onboarding .ob-slide--paths .ob-title {
+                    font-size: clamp(26px, 7.6vw, 36px);
+                    line-height: 1.09;
+                }
+
+                #o360-qr-onboarding .ob-slide--diagnosis .ob-title {
+                    font-size: clamp(24px, 7vw, 32px);
+                    line-height: 1.08;
+                }
+
+                #o360-qr-onboarding .ob-choices {
+                    gap: 7px;
+                }
+
+                #o360-qr-onboarding .ob-choice-wheel {
+                    height: 284px;
+                    margin-block: -12px;
+                    border-radius: 24px;
+                }
+
+                #o360-qr-onboarding .ob-choice-wheel-spacer {
+                    height: 113px;
+                }
+
+                #o360-qr-onboarding .ob-choice-wheel-focus {
+                    top: calc((12.5px * 1.1) + 7px + 113px - 12px);
+                }
+
+                #o360-qr-onboarding .ob-choice-wheel-card {
+                    font-size: 13.5px;
+                }
+
+                #o360-qr-onboarding .ob-result-card {
+                    padding: 0;
+                    border-radius: 0;
+                    gap: 14px;
+                }
+
+                #o360-qr-onboarding .ob-result-text {
+                    font-size: 14.5px;
+                    line-height: 1.22;
+                }
+
+                #o360-qr-onboarding .ob-paths {
+                    grid-template-columns: 1fr;
+                    gap: 9px;
+                }
+
+                #o360-qr-onboarding .ob-path-card {
+                    min-height: auto;
+                    padding: 14px;
+                    border-radius: 20px;
+                    gap: 10px;
+                }
+
+                #o360-qr-onboarding .ob-path-card h3 {
+                    font-size: 16px;
+                }
+
+                #o360-qr-onboarding .ob-path-card p,
+                #o360-qr-onboarding .ob-note {
+                    font-size: 12.5px;
+                    line-height: 1.22;
+                }
+
+                #o360-qr-onboarding .ob-visual {
+                    width: min(40vw, 148px);
+                }
+
+                #o360-qr-onboarding .ob-slide:nth-child(1) .ob-visual {
+                    width: min(44vw, 160px);
+                }
+
+                #o360-qr-onboarding .ob-mini-card {
+                    min-height: 44px;
+                    border-radius: 16px;
+                }
+
+                #o360-qr-onboarding .ob-mini-card:nth-child(2),
+                #o360-qr-onboarding .ob-mini-card:nth-child(3) {
+                    margin-left: 0;
+                }
+
+                #o360-qr-onboarding .ob-final-actions {
+                    width: 100%;
+                    display: grid;
+                    justify-items: stretch;
+                    gap: 10px;
+                }
+
+                #o360-qr-onboarding .ob-btn,
+                #o360-qr-onboarding .ob-link {
+                    width: 100%;
+                    min-height: 46px;
+                }
+
+                #o360-qr-onboarding .ob-choices .ob-btn {
+                    width: auto;
+                    min-height: 46px;
+                    padding-inline: 24px;
+                }
+
+                #o360-qr-onboarding .ob-step-arrow {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                #o360-qr-onboarding .ob-splash-word {
+                    font-size: clamp(31px, 10vw, 42px);
+                }
+
+                #o360-qr-onboarding .ob-splash-type::before {
+                    font-size: clamp(40px, 15vw, 76px);
+                }
+
+                #o360-qr-onboarding .ob-splash-type::after {
+                    font-size: clamp(24px, 9vw, 42px);
+                }
+
+                #o360-qr-onboarding .ob-splash-logo {
+                    width: min(34vw, 124px);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                #o360-qr-onboarding *,
+                #o360-qr-onboarding *::before,
+                #o360-qr-onboarding *::after {
+                    animation-duration: .01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: .01ms !important;
+                    scroll-behavior: auto !important;
+                }
+
+                #o360-qr-onboarding .ob-splash {
+                    display: none;
+                }
+
+                #o360-qr-onboarding .ob-top,
+                #o360-qr-onboarding .ob-frame {
+                    opacity: 1;
+                    transform: none;
+                }
+
+            }
+        </style>
+
+        <span class="ob-bg-word" aria-hidden="true">OPTIMA360</span>
+        <span class="ob-orbit" aria-hidden="true"></span>
+        <span class="ob-scan" aria-hidden="true"></span>
+        <span class="ob-transition" aria-hidden="true">
+            <span class="ob-transition-mark"></span>
+        </span>
+
+        <div class="ob-splash" aria-hidden="true">
+            <div class="ob-splash-type">
+                <span class="ob-splash-word">Hoooola!</span>
+                <span class="ob-splash-word ob-splash-word--outline">Optima360</span>
+            </div>
+            <img class="ob-splash-logo"
+                src="https://optima360studio.com/wp-content/uploads/2025/01/LOGO-OPTIMA-NEGATIVO.png"
+                alt="">
+        </div>
+
+        <div class="ob-shell">
+            <div class="ob-top">
+                <img class="ob-logo"
+                    src="https://optima360studio.com/wp-content/uploads/2025/01/LOGO-OPTIMA-NEGATIVO.png"
+                    alt="Optima360">
+                <a class="ob-skip"
+                    href="https://wa.me/34642032704?text=Hola%20Lucas%2C%20he%20llegado%20a%20Optima360%20y%20quiero%20contarte%20mi%20caso."
+                    target="_blank" rel="noopener noreferrer">Escribir ahora</a>
+            </div>
+
+            <section class="ob-frame" aria-live="polite">
+                <article class="ob-slide is-active" data-ob-slide>
+                    <div class="ob-copy">
+                        <h1 id="o360ob-title" class="ob-title ob-title--welcome">
+                            <span>Hooola!</span>
+                            <small>Te doy la bienvenida a Optima360.</small>
+                        </h1>
+                        <div class="ob-text ob-text--stack">
+                            <span>Soy Lucas Domenech, fundador de la empresa y cerebro creativo :)</span>
+                            <span>Has llegado hasta aquí por algo,</span>
+                            <span>Déjame guiarte rápido y ya tú eliges.</span>
+                        </div>
+                        <div class="ob-slide-actions">
+                            <button class="ob-btn" type="button" data-ob-advance>Vamos allá</button>
+                            <a class="ob-link" href="https://optima360studio.com/">Ir a la web</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="ob-slide" data-ob-slide>
+                    <div class="ob-copy">
+                        <p class="ob-kicker">La misión de Optima...</p>
+                        <h2 class="ob-title ob-title--wide">No seas invisible.<br>Optimiza tu negocio.</h2>
+                        <p class="ob-text">Ayudamos a negocios y marcas a verse mejor, comunicar mejor y funcionar
+                            mejor en el mundo digital.</p>
+                        <div class="ob-microline">Claridad. Percepción. Diseño.</div>
+                    </div>
+        
+                    <div class="ob-slide-actions">
+                        <button class="ob-btn" type="button" data-ob-advance>Me gusta :)</button>
+                    </div>
+                </article>
+
+                <article class="ob-slide ob-slide--diagnosis" data-ob-slide>
+                    <div class="ob-copy">
+                        <h2 class="ob-title ob-title--wide">¿Qué te ha traído por aquí?</h2>
+                        <p class="ob-text">Elige lo que más se acerque. No hace falta que sea al 100%.</p>
+                    </div>
+                    <div class="ob-choices" aria-label="Opciones">
+                        <div class="ob-choice-hint">Desliza hasta centrar tu opción.</div>
+                        <div class="ob-choice-wheel-focus"></div>
+                        <div class="ob-choice-wheel" data-ob-choice-wheel aria-label="Ruleta de opciones">
+                            <div class="ob-choice-wheel-track" data-ob-choice-wheel-track></div>
+                        </div>
+                        <button class="ob-btn" type="button" data-ob-choice-next>Siguiente</button>
+                    </div>
+                </article>
+
+                <article class="ob-slide ob-slide--paths" data-ob-slide>
+                    <div class="ob-result-card ob-result-card--final">
+                        <div class="ob-copy">
+                            <h2 class="ob-title ob-title--wide" data-ob-final-title>Entonces curiosea con calma.</h2>
+                            <p class="ob-text ob-result-text" data-ob-final-text>Mira la web con calma. Y si algo te
+                                encaja, me escribes y lo bajamos a tierra.</p>
+                        </div>
+                        <div class="ob-final-actions">
+                            <a class="ob-btn" data-ob-final-whatsapp
+                                href="https://wa.me/34642032704?text=Hola%20Lucas%2C%20he%20llegado%20a%20Optima360%20y%20quiero%20contarte%20mi%20caso."
+                                target="_blank" rel="noopener noreferrer">Hacer una pregunta rápida</a>
+                            <a class="ob-link" data-ob-final-secondary href="https://optima360studio.com/">Curiosear la
+                                web</a>
+                        </div>
+                        <p class="ob-note" data-ob-final-note>A veces todo empieza por mirar un poco.</p>
+                    </div>
+                </article>
+            </section>
+
+            <div class="ob-step-nav" aria-label="Navegación">
+                <button class="ob-step-arrow" type="button" data-ob-step-prev aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <button class="ob-step-arrow" type="button" data-ob-step-next aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 6l6 6-6 6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                const block = document.getElementById('o360-qr-onboarding');
+                if (!block) return;
+
+                const slides = Array.from(block.querySelectorAll('[data-ob-slide]'));
+                const advances = Array.from(block.querySelectorAll('[data-ob-advance]'));
+                const choiceWheel = block.querySelector('[data-ob-choice-wheel]');
+                const choiceWheelTrack = block.querySelector('[data-ob-choice-wheel-track]');
+                const choiceNext = block.querySelector('[data-ob-choice-next]');
+                const stepPrev = block.querySelector('[data-ob-step-prev]');
+                const stepNext = block.querySelector('[data-ob-step-next]');
+                const finalTitle = block.querySelector('[data-ob-final-title]');
+                const finalText = block.querySelector('[data-ob-final-text]');
+                const finalNote = block.querySelector('[data-ob-final-note]');
+                const finalWhatsapp = block.querySelector('[data-ob-final-whatsapp]');
+                const finalSecondary = block.querySelector('[data-ob-final-secondary]');
+
+                const HOME_URL = 'https://optima360studio.com/';
+                const WEB_URL = 'https://optima360studio.com/diseno-web-para-negocios/';
+                const SEO_URL = 'https://optima360studio.com/posicionamiento-seo-local/';
+                const GRAPHIC_URL = 'https://optima360studio.com/diseno-grafico-para-negocios/';
+                const GENERIC_MESSAGE = 'Hola Lucas, he llegado a Optima360 y quiero contarte mi caso.';
+                const OPTION_ITEMS = [
+                    { intent: 'sin_web', label: 'No tenemos página web' },
+                    { intent: 'web_mejorar', label: 'Mi web podría funcionar mejor' },
+                    { intent: 'presencia_profesional', label: 'Necesitamos una presencia más profesional' },
+                    { intent: 'seo_google', label: 'Queremos aparecer mejor en Google' },
+                    { intent: 'imagen_empresa', label: 'La imagen de la empresa podría estar más cuidada' },
+                    { intent: 'curiosidad', label: 'Estoy curioseando' }
+                ];
+                const variants = {
+                    sin_web: {
+                        finalTitle: 'Hoy en día, no tener web es casi ser invisible.',
+                        finalText: 'Mucha gente va a buscarte antes de escribirte, llamarte o confiar en ti. Y cuando no encuentra nada claro, simplemente pasa al siguiente.',
+                        finalCta: 'Crear la web de mi negocio',
+                        secondary: 'Ver páginas web',
+                        secondaryHref: WEB_URL,
+                        note: 'No necesitas saber exactamente qué hacer. Para eso estamos nosotros.',
+                        message: 'Hola Lucas, he llegado a Optima360. No tenemos página web y quiero crear una para el negocio.'
+                    },
+                    web_mejorar: {
+                        finalTitle: 'Tu web debería ayudarte a crecer.',
+                        finalText: 'Si no transmite confianza, claridad o ganas de contactar, probablemente está dejando oportunidades por el camino.',
+                        finalCta: 'Contarle mi caso a Lucas',
+                        secondary: 'Ver diseño web',
+                        secondaryHref: WEB_URL,
+                        note: 'Puedes mandarme tu web y te digo por dónde empezaría.',
+                        message: 'Hola Lucas, he llegado a Optima360. Tengo una web que creo que podría funcionar mejor y quiero contarte mi caso.'
+                    },
+                    presencia_profesional: {
+                        finalTitle: 'La primera impresión ya está hablando por ti.',
+                        finalText: 'Tu negocio puede tener mucho valor, pero si su presencia digital no lo refleja, parte de ese valor se pierde antes del primer contacto.',
+                        finalCta: 'Explicarle mi situación a Lucas',
+                        secondary: 'Ver diseño web',
+                        secondaryHref: WEB_URL,
+                        note: 'Web, imagen, estructura o todo junto. Lo ordenamos sin complicarlo.',
+                        message: 'Hola Lucas, he llegado a Optima360. Necesitamos una web o presencia digital más profesional y quiero ver cómo enfocarlo.'
+                    },
+                    seo_google: {
+                        finalTitle: 'Si no te encuentran, no existes.',
+                        finalText: 'Cuando alguien busca lo que haces, aparecer bien puede ser la diferencia entre una oportunidad ganada y una oportunidad perdida.',
+                        finalCta: 'Mejorar mi visibilidad',
+                        secondary: 'Ver posicionamiento SEO',
+                        secondaryHref: SEO_URL,
+                        note: 'SEO, Google Maps, reseñas y contenido. Todo suma cuando está bien trabajado.',
+                        message: 'Hola Lucas, he llegado a Optima360. Queremos aparecer mejor en Google y me gustaría contarte la situación.'
+                    },
+                    imagen_empresa: {
+                        finalTitle: 'Todo comunica.',
+                        finalText: 'Logo, colores, carteles, redes, ropa o web pueden hacer que una empresa parezca más clara, más sólida y más profesional.',
+                        finalCta: 'Revisar la imagen de la empresa',
+                        secondary: 'Ver diseño gráfico',
+                        secondaryHref: GRAPHIC_URL,
+                        note: 'No se trata solo de que se vea bonito. Se trata de que transmita mejor.',
+                        message: 'Hola Lucas, he llegado a Optima360. Creo que la imagen de la empresa podría estar más cuidada y quiero ver cómo mejorarla.'
+                    },
+                    curiosidad: {
+                        finalTitle: 'Entonces curiosea con calma.',
+                        finalText: 'Mira proyectos, servicios y cómo trabajamos. Si algo te encaja, me escribes y lo bajamos a tierra.',
+                        finalCta: 'Curiosear la web',
+                        finalHref: HOME_URL,
+                        secondary: 'Hacer una pregunta rápida',
+                        secondaryHref: null,
+                        note: 'A veces todo empieza por mirar un poco.',
+                        message: 'Hola Lucas, he llegado a Optima360. Estoy curioseando, pero me interesa lo que hacéis y quería hacerte una pregunta.'
+                    }
+                };
+
+                let index = 0;
+                let selectedIntent = 'curiosidad';
+                let isAnimating = false;
+                let choiceWheelItems = [];
+                let choiceSnapTimer = null;
+                let isChoiceRecentering = false;
+                let isChoiceSnapping = false;
+                let hasChoiceInitialPosition = false;
+
+                function whatsappUrl(message) {
+                    return 'https://wa.me/34642032704?text=' + encodeURIComponent(message || GENERIC_MESSAGE);
+                }
+
+                function updateDynamicResult() {
+                    const variant = variants[selectedIntent] || variants.curiosidad;
+                    const url = whatsappUrl(variant.message);
+
+                    if (finalTitle) finalTitle.textContent = variant.finalTitle;
+                    if (finalText) finalText.textContent = variant.finalText;
+                    if (finalNote) finalNote.textContent = variant.note;
+                    if (finalWhatsapp) {
+                        finalWhatsapp.textContent = variant.finalCta;
+                        finalWhatsapp.href = variant.finalHref || url;
+                    }
+                    if (finalSecondary) {
+                        finalSecondary.textContent = variant.secondary;
+                        finalSecondary.href = variant.secondaryHref || url;
+                        finalSecondary.target = '_blank';
+                        finalSecondary.rel = 'noopener noreferrer';
+                    }
+                }
+
+                function updateControls() {
+                    block.dataset.step = String(index);
+                    if (stepPrev) stepPrev.hidden = index === 0;
+                    if (stepNext) stepNext.hidden = index >= slides.length - 1;
+                }
+
+                const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+                function withChoiceAutoScroll(fn) {
+                    if (!choiceWheel) return;
+                    const prev = choiceWheel.style.scrollBehavior;
+                    choiceWheel.style.scrollBehavior = 'auto';
+                    fn();
+                    choiceWheel.style.scrollBehavior = prev || 'auto';
+                }
+
+                function buildChoiceWheel() {
+                    if (!choiceWheelTrack || choiceWheelItems.length) return;
+
+                    const repeats = 7;
+                    const frag = document.createDocumentFragment();
+                    const topSpacer = document.createElement('div');
+                    topSpacer.className = 'ob-choice-wheel-spacer';
+                    topSpacer.setAttribute('aria-hidden', 'true');
+                    frag.appendChild(topSpacer);
+
+                    for (let repeat = 0; repeat < repeats; repeat++) {
+                        OPTION_ITEMS.forEach((option) => {
+                            const item = document.createElement('div');
+                            item.className = 'ob-choice-wheel-item';
+                            item.dataset.intent = option.intent;
+                            item.dataset.label = option.label;
+                            item.innerHTML = `<div class="ob-choice-wheel-card">${option.label}</div>`;
+                            frag.appendChild(item);
+                        });
+                    }
+
+                    const bottomSpacer = document.createElement('div');
+                    bottomSpacer.className = 'ob-choice-wheel-spacer';
+                    bottomSpacer.setAttribute('aria-hidden', 'true');
+                    frag.appendChild(bottomSpacer);
+
+                    choiceWheelTrack.replaceChildren(frag);
+                    choiceWheelItems = Array.from(choiceWheelTrack.querySelectorAll('.ob-choice-wheel-item'));
+                }
+
+                function recenterChoiceWheel() {
+                    if (!choiceWheel || !choiceWheelItems.length) return;
+                    const step = choiceWheelItems[0].offsetHeight || 58;
+                    const blockHeight = OPTION_ITEMS.length * step;
+                    const topSpacerHeight = step * 2;
+                    const minSafe = topSpacerHeight + blockHeight;
+                    const maxSafe = topSpacerHeight + (blockHeight * 5);
+                    const current = choiceWheel.scrollTop;
+
+                    if (current < minSafe) {
+                        isChoiceRecentering = true;
+                        withChoiceAutoScroll(() => {
+                            choiceWheel.scrollTop = current + (blockHeight * 2);
+                        });
+                        isChoiceRecentering = false;
+                    } else if (current > maxSafe) {
+                        isChoiceRecentering = true;
+                        withChoiceAutoScroll(() => {
+                            choiceWheel.scrollTop = current - (blockHeight * 2);
+                        });
+                        isChoiceRecentering = false;
+                    }
+                }
+
+                function renderChoiceWheel() {
+                    if (!choiceWheel || !choiceWheelItems.length) return;
+
+                    const step = choiceWheelItems[0].offsetHeight || 58;
+                    const wheelRect = choiceWheel.getBoundingClientRect();
+                    const centerY = wheelRect.top + (wheelRect.height / 2);
+                    let centeredItem = null;
+                    let centeredDistance = Infinity;
+
+                    choiceWheelItems.forEach((item) => {
+                        const rect = item.getBoundingClientRect();
+                        const itemCenterY = rect.top + (rect.height / 2);
+                        const distanceInSteps = (itemCenterY - centerY) / step;
+                        const distance = Math.abs(distanceInSteps);
+
+                        if (distance < centeredDistance) {
+                            centeredDistance = distance;
+                            centeredItem = item;
+                        }
+
+                        const scale = clamp(1 - (distance * .12), .7, 1);
+                        const opacity = clamp(1 - (distance * .25), .12, 1);
+                        const blur = clamp((distance - .2) * .72, 0, 1.8);
+                        const translateY = clamp(distance * 1.1, 0, 4) * (distanceInSteps < 0 ? 1 : -1);
+                        const rotateX = clamp(distanceInSteps * -5, -12, 12);
+
+                        item.style.opacity = opacity;
+                        item.style.filter = `blur(${blur}px)`;
+                        item.style.transform = `perspective(900px) translateY(${translateY}px) rotateX(${rotateX}deg) scale(${scale})`;
+                        item.classList.toggle('is-centered', distance < .22);
+                    });
+
+                    if (centeredItem) {
+                        selectedIntent = centeredItem.dataset.intent || selectedIntent;
+                    }
+                }
+
+                function snapChoiceWheel() {
+                    if (!choiceWheel || isChoiceSnapping || isChoiceRecentering) return;
+                    const step = choiceWheelItems[0]?.offsetHeight || 58;
+                    isChoiceSnapping = true;
+
+                    const targetTop = Math.round(choiceWheel.scrollTop / step) * step;
+                    choiceWheel.style.scrollBehavior = 'smooth';
+                    choiceWheel.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+                    window.setTimeout(() => {
+                        choiceWheel.style.scrollBehavior = 'auto';
+                        recenterChoiceWheel();
+                        renderChoiceWheel();
+                        isChoiceSnapping = false;
+                    }, 180);
+                }
+
+                function refreshChoiceWheel() {
+                    if (!choiceWheel) return;
+                    buildChoiceWheel();
+
+                    if (!hasChoiceInitialPosition && choiceWheelItems.length) {
+                        const step = choiceWheelItems[0].offsetHeight || 58;
+                        withChoiceAutoScroll(() => {
+                            choiceWheel.scrollTop = OPTION_ITEMS.length * step * 3;
+                        });
+                        hasChoiceInitialPosition = true;
+                    }
+
+                    recenterChoiceWheel();
+                    renderChoiceWheel();
+                }
+
+                function finishChoiceSelection() {
+                    refreshChoiceWheel();
+                    updateDynamicResult();
+                    goTo(3);
+                }
+
+                function goTo(nextIndex) {
+                    if (isAnimating || nextIndex === index || nextIndex < 0 || nextIndex >= slides.length) return;
+                    isAnimating = true;
+                    if (nextIndex >= 3) updateDynamicResult();
+
+                    const current = slides[index];
+                    const incoming = slides[nextIndex];
+                    const direction = nextIndex > index ? 'next' : 'prev';
+
+                    block.dataset.motion = direction;
+                    block.classList.add('is-wiping');
+                    current.classList.add('is-leaving');
+                    current.classList.remove('is-active');
+
+                    window.setTimeout(() => {
+                        incoming.classList.add('is-active');
+                    }, 110);
+
+                    window.setTimeout(() => {
+                        current.classList.remove('is-leaving');
+                        index = nextIndex;
+                        updateControls();
+                        if (index === 2) refreshChoiceWheel();
+                        block.classList.remove('is-wiping');
+                        isAnimating = false;
+                    }, 760);
+                }
+
+                function goNextFromTap() {
+                    if (index === 2) return;
+                    if (index < slides.length - 1) goTo(index + 1);
+                }
+
+                advances.forEach((button) => {
+                    button.addEventListener('click', goNextFromTap);
+                });
+
+                if (choiceWheel) {
+                    choiceWheel.addEventListener('scroll', () => {
+                        if (isChoiceRecentering || isChoiceSnapping) return;
+
+                        recenterChoiceWheel();
+                        renderChoiceWheel();
+
+                        window.clearTimeout(choiceSnapTimer);
+                        choiceSnapTimer = window.setTimeout(snapChoiceWheel, 90);
+                    }, { passive: true });
+
+                    choiceWheel.addEventListener('click', (event) => {
+                        const item = event.target.closest('.ob-choice-wheel-item');
+                        if (!item || !choiceWheel.contains(item)) return;
+
+                        const targetTop = item.offsetTop - ((choiceWheel.clientHeight - item.offsetHeight) / 2);
+                        selectedIntent = item.dataset.intent || selectedIntent;
+                        choiceWheel.style.scrollBehavior = 'smooth';
+                        choiceWheel.scrollTo({ top: targetTop, behavior: 'smooth' });
+
+                        window.clearTimeout(choiceSnapTimer);
+                        choiceSnapTimer = window.setTimeout(() => {
+                            choiceWheel.style.scrollBehavior = 'auto';
+                            recenterChoiceWheel();
+                            renderChoiceWheel();
+                        }, 220);
+                    });
+                }
+
+                if (choiceNext) {
+                    choiceNext.addEventListener('click', finishChoiceSelection);
+                }
+
+                if (stepPrev) {
+                    stepPrev.addEventListener('click', () => goTo(index - 1));
+                }
+
+                if (stepNext) {
+                    stepNext.addEventListener('click', () => {
+                        if (index === 2) finishChoiceSelection();
+                        else goNextFromTap();
+                    });
+                }
+
+                updateDynamicResult();
+                refreshChoiceWheel();
+                updateControls();
+                window.addEventListener('resize', refreshChoiceWheel);
+            })();
+        </script>
+    </main>
+</body>
+
+</html>
